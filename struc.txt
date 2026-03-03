@@ -1,0 +1,20 @@
+.github --> actions para levantar la github pages
+asstets --> imagenes que se usan en la web.
+content --> Yaml con los contenidos y demás para las entradas.
+font --> Fuentes usadas
+style --> css donde estara el theme del sitio
+layout --> --> index.html --> es toda la estructura básica del blog, contiene los links al theme, y lo requerido minimo para
+		     el esqueleto html de la web.
+pages --> templates html para hacer el sitio.
+ --> home.html --> pagina de inicio. muestra los posteos fijados para ser mostrados y los ultimos posteos.
+ --> post.html --> layout para las entradas de blog. la vista.
+ --> lista-de-posteos.html --> todas las entradas del blog.
+
+config.yaml:
+- Titulo del blog
+- SEO: config para motores de busqueda
+- BaseUrl: (nombre del repositorio)
+- generar los XML
+- tags para uso en la busqueda
+- Perfiles de autores
+- Links de contacto: linkedn, web, otros

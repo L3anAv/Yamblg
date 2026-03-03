@@ -1,0 +1,14 @@
+Lo proximo que queda para yamblg:
+
+- Hacer que detecte cambios del config.yaml
+config.yaml: 
+Mostar en centro de posteos: todos/solo fav/no fav/ultimos
+poder desactivar la lista de posteos.
+
+- Publicarlo en linkedin.
+- Hacer tiktok explicando el proyecto.
+- Comprar dominio para hacer un subdominio blog.l3anav
+
+Features:
+- Herramienta que se activa, que sirva para escribir nuevas entradas. (para no escribir manualmente los .yaml).
+- Lo mismo, pero para editar configs.
