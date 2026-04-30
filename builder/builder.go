@@ -1,6 +1,7 @@
 package builder
 
 import (
+    
     "os"
     "io"
 	"fmt"
@@ -10,6 +11,7 @@ import (
 	"regexp"
     "strconv"
 	"strings"
+    "unicode"
 	"html/template"
 	"path/filepath"
 
@@ -20,6 +22,11 @@ import (
     "github.com/snabb/sitemap"
     "github.com/gorilla/feeds"
     
+    // Transformacion y reemplazo de tildes por caracteres sin tilde correspondiente
+    "golang.org/x/text/runes"
+	"golang.org/x/text/transform"
+	"golang.org/x/text/unicode/norm"
+
     // Minificacion
 	"github.com/tdewolff/minify/v2"
     "github.com/tdewolff/minify/v2/html"
@@ -57,8 +64,19 @@ func copyRoute(fs afero.Fs,src, dst string) error {
 
 func slugify(s string) string {
 	s = strings.ToLower(s)
+
+	// Creo un transformador que:
+	// 1. Descompone caracteres (NFD)
+	// 2. Elimina todos los caracteres que sean tildes
+	// 3. Vuelve a normalizar
+	t := transform.Chain(norm.NFD, runes.Remove(runes.In(unicode.Mn)), norm.NFC)
+	
+	// Aplico la transformación
+	s, _, _ = transform.String(t, s)
+
 	reg := regexp.MustCompile("[^a-z0-9]+")
 	s = reg.ReplaceAllString(s, "-")
+
 	return strings.Trim(s, "-")
 }
 
