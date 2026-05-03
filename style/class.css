@@ -1,35 +1,58 @@
-.texto-central{
-  font-size:12px;
-  margin-top:20px;
-  margin-bottom:20px;
+.texto-central {
+  font-size: 12px;
+  margin-top: 20px;
+  text-align: left;
+  margin-bottom: 20px;
   font-family: 'Sans';
 }
 
-.texto-central div{
-  
+.texto-central > div:first-child { 
   width: max-content;
-  margin-bottom:5px;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: 5px;
   background: #f59e0b;
-  border-right:1px solid #000;
-  border-bottom:1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
-.texto-central div p{
-  color:#fff;
-  padding-left:12px;
-  padding-right:12px;
+.texto-central div p {
+  color: #fff;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
-.texto-central h2{
+.texto-central h2 {
   line-height: 1.1;
-  font-size:2.3rem;
-  font-style: bold; 
+  font-size: 2.3rem;
+  font-weight: bold;
 }
 
-.texto-central h2 span{
-  color:#f59e0b;
+.texto-central h2 span {
+  color: #f59e0b;
   font-style: italic;
-  font-size:2.8rem;
+  font-size: 2.8rem;
+  white-space: nowrap;
+  display: block;
+}
+
+.instalacion {
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: center;
+}
+
+.instalacion p {
+  display: inline-block;
+  color: #000000;
+  background-color: #adadad;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  box-shadow: 2px 2px 0px #000;
 }
 
 .ultimos-posts{
@@ -257,6 +280,7 @@
 
 .contenedor-banner img{
   height: auto;
+  margin-top:2%;
   width: clamp(12%, 25%, 40%);
 }
 

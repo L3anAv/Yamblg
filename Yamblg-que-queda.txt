@@ -1,14 +1,18 @@
-Lo proximo que queda para yamblg:
+Proximas implementaciones (sin orden de prioridad):
 
-- Hacer que detecte cambios del config.yaml
-config.yaml: 
-Mostar en centro de posteos: todos/solo fav/no fav/ultimos
-poder desactivar la lista de posteos.
+- Agregar editor propio para las entradas y creacion de las mismas. sin persitencia, usando la idea de textmyarea (repo).
+- Hacer que detecte los siguientes cambios del 'config.yaml':
+    - Mostar en centro de posteos: todos/solo fav/no fav/ultimos todos limitados por una cantidad.
+    - poder desactivar la lista de posteos.
+    - agregar perfiles, para varios escritores, o para no tener que definir el autor en cada post.
 
+Nuevas Funcionalidades proximas:
+- Definir los metodos de ordenamiento de posteos.
+
+Modificaciones:
+- Redefinir los campos de los yaml, agregar campos como no linkear, ocultar, etc.
+
+Personales:
 - Publicarlo en linkedin.
 - Hacer tiktok explicando el proyecto.
-- Comprar dominio para hacer un subdominio blog.l3anav
-
-Features:
-- Herramienta que se activa, que sirva para escribir nuevas entradas. (para no escribir manualmente los .yaml).
-- Lo mismo, pero para editar configs.
+- Comprar dominio para hacer un subdominio blog.l3anav.

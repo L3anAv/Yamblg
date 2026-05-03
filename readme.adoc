@@ -1,4 +1,3 @@
-[comment]
 Author !Leandro Avila leandroav.dev@gmail.com
 
 :fecha: 22/01/2026
@@ -11,8 +10,7 @@ ifdef::env-github[]
 ++++
 endif::[]
 
-Diseñado para quienes quieren un blog personal rápidamente, sin tanta configuración. La idea es: copias el repositorio, creas las publicaciones en YAML, y publicas en GitHub Pages.
-
+Diseñado para quienes quieren un blog rápidamente. La idea: instalas la herramienta, creas tus publicaciones en YAML y generas tu sitio estático en segundos.
 
 [.text-center]
 image:https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square[Status]
@@ -21,37 +19,32 @@ image:https://img.shields.io/badge/Config-YAML-red?style=flat-square&logo=yaml&l
 image:https://img.shields.io/badge/Version-0.1.12-blue?style=flat-square[Version]
 image:https://img.shields.io/badge/RSS-Feed-orange?style=flat-square&logo=rss[RSS Feed, link="https://l3anav.github.io/Yamblg/index.xml"]
 
-== 🛠️ [.underline]#¿Cómo se usa?#
+== 🚀 [.underline]#¿Cómo se usa?#
 
-Tener tu blog es tan sencillo como seguir estos tres pasos:
+### 0. Requisitos previos
+[WARNING]
+====
+**¡OJO!** Para utilizar Yamblg, necesitas tener instalado **Go** en tu sistema (versión >= 1.25). Puedes descargarlo desde link:https://go.dev/dl/[go.dev].
+====
 
-* **Fork Master o copias el repositorio**
+### 1. Instalación
+Una vez tengas Go configurado, instala el CLI de Yamblg ejecutando:
+[source,bash]
+----
+go install github.com/l3anav/yamblg@latest
+----
 
-* **Configura:** Crea archivos del estilo `{name}.yaml` (el {name} se utiliza en tal caso de que title sea vacío). El archivo se crea siguiendo la siguiente estructura:
+### 2. Comandos principales
 
-[source,text]
-title: <Titulo de la entrada de blog>
-date: Completa automaticamente con la fecha de creación o modificación del archivo. (siempre y cuando el campo este vacío o no exista).
-fijado: true | false -> Se muestra en home resaltado. 
-author: <Quien escribe la entrada>
-description: <Resumen de contenido de la entrada>
-body: <Contenido de la entrada>
+* **`yamblg init`**: Genera un template inicial con la estructura de carpetas y archivos base para tu blog.
+* **`yamblg serve`**: Levanta un servidor local en memoria. Perfecto para desarrollo: puedes cambiar estilos o redactar posts y ver los cambios al instante sin regenerar archivos.
+* **`yamblg build`**: (Opcional) Procesa todo el contenido y genera la carpeta `public/` con el sitio estático final, listo para subir a producción.
 
-.Ejemplo del archivo "03-01-2025.yaml":
-[source,yalm]
-title: "Hola, Bienvenido a Yamblg!"
-date: "03-01-2025"
-fijado: false
-author: "!Leandro Avila"
-description: "Primer post creado para mostrar en la demo."
-body: "Bienvenido a la demo de Yamblg. Gracias por su visita. 
-Espero que te sea de utilidad el mini proyecto."
-
-* **Publica:** pushea los cambios al repositorio, ¡Listo!.
+---
 
 [WARNING]
 ====
-**¡OJO!** En los ajustes de tu repositorio, ve a PAGES y activa *GitHub Pages* con la opcion de **Github Actions**.
+**¡OJO!** Si despliegas en GitHub Pages, recuerda ir a los ajustes de tu repositorio, sección **PAGES**, y seleccionar **GitHub Actions** como fuente del despliegue.
 ====
 
 ifdef::env-github[]
@@ -65,37 +58,47 @@ image::github-actions.gif[Configuración de Actions]
 ++++
 endif::[]
 
-=== Configurar config.yaml
+### 3. Configura tus posts
+Crea archivos del estilo `{name}.yaml`. Si el campo `title` está vacío, el sistema usará el nombre del archivo.
 
-[source,yalm]
-baseUrl: "/Yamblg" -> Nombre del repositorio.
-siteTitle: "Yamblg | Crea tu blog rápidamente" -> Título del blog.
-useSectionPost: -> Usar la sección últimos posts.
-    active: true -> true | false -> activo o desactivado
-    limitOfPost: 5 -> Cantidad de posts mostrados
-    method: "Latest" -> Metodo de muestreo de posts. (Todavía no implementado)
-usePinned: -> Mostar post fijados solamente en incio. (si es false, se muestran todos)
-    active: true -> true | false
+[source,text]
+title: <Titulo de la entrada de blog>
+date: Completa automaticamente con la fecha de creación o modificación del archivo (si el campo está vacío).
+fijado: true | false -> Se muestra en home resaltado. 
+author: <Quien escribe la entrada>
+description: <Resumen de contenido de la entrada>
+body: <Contenido de la entrada en Markdown o texto plano>
+
+.Ejemplo de "mi-primer-post.yaml":
+[source,yaml]
+----
+title: "Hola, Bienvenido a Yamblg!"
+date: "22-01-2026"
+fijado: false
+author: "!Leandro Avila"
+description: "Primer post creado para mostrar la potencia del CLI."
+body: "Bienvenido a la demo de Yamblg. ¡Gracias por usar la herramienta!"
+----
+
+=== Config.yaml
+
+[source,yaml]
+----
+baseUrl: "/nombre-repo" # El nombre de tu repositorio en GitHub
+siteTitle: "Yamblg | Mi Blog"
+useSectionPost: 
+    active: true
+    limitOfPost: 5 
+    method: "Latest"
+usePinned: 
+    active: true
+----
 
 ## ⚙️ Cómo funciona
 
 xref:.docs/estructura.adoc[Detalle de estructura de proyecto]
 
-ifdef::env-github[]
-++++
-<p align="center">
-  <img src="arq.png" alt="Yamblg Logo" width="max-content">
-</p>
-++++
-endif::[]
-
-Yamblg utiliza una arquitectura de SSG.
-
-* **YAML para el contenido:** No hay bases de datos. Todo el contenido y la configuración viven en archivos de texto plano fáciles de leer.
-* **Go como Procesador:** El binario de Go toma tus archivos YAML y los transforma en HTML puro usando las pages.
-* **Automatización Total:** Gracias a GitHub Actions, cada vez que editas un archivo y subes el cambio la repositorio, el blog se reconstruye y se despliega solo.
-
-Desarrollado para la simplicidad. Desarollado para la comunidad. 💖 &#13;
+Desarrollado para la simplicidad.
 
 **¡Go publish!**
 
