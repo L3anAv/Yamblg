@@ -1,6 +1,8 @@
-Author !Leandro Avila leandroav.dev@gmail.com
+[comment]
+!Leandro Avila leandroav.dev@gmail.com
 
-:fecha: 22/01/2026
+:fecha: 02/05/2026
+:project-version: 0.0.0
 
 ifdef::env-github[]
 ++++
@@ -10,7 +12,7 @@ ifdef::env-github[]
 ++++
 endif::[]
 
-Diseñado para quienes quieren un blog rápidamente. La idea: instalas la herramienta, creas tus publicaciones en YAML y generas tu sitio estático en segundos.
+Diseñado para quienes quieren un blog rápidamente. Instalas la herramienta, creas tus YAML y generas el blog.
 
 [.text-center]
 image:https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square[Status]
