@@ -25,21 +25,21 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "Nueva versión detectada: $VERSION"
 
-      - name: Actualizar README.adoc
+      - name: Actualizar readme.adoc
         run: |
-          # Actualiza el atributo :project-version: en el README
-          # El ^ asegura que solo cambie si la línea empieza con eso
-          sed -i "s/^:project-version:.*/:project-version: ${{ env.VERSION }}/" README.adoc
+          # Usamos el nombre exacto del archivo: readme.adoc
+          sed -i "s/^:project-version:.*/:project-version: ${{ env.VERSION }}/" readme.adoc
 
       - name: Commit y Push de cambios
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          if git diff --quiet README.adoc; then
+          # Asegúrate de usar minúsculas aquí también
+          if git diff --quiet readme.adoc; then
             echo "La versión ya estaba actualizada."
           else
-            git add README.adoc
-            git commit -m "chore: saltar a versión v${{ env.VERSION }} en README"
+            git add readme.adoc
+            git commit -m "cambio: saltar a versión v${{ env.VERSION }} en README"
             git push
           fi
