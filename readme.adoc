@@ -2,7 +2,7 @@
 !Leandro Avila leandroav.dev@gmail.com
 
 :fecha: 02/05/2026
-:project-version: 0.0.0
+:project-version: 0.1.12
 :badge-url: https://img.shields.io/badge/Version-{project-version}-blue?style=flat-square
 
 ifdef::env-github[]
