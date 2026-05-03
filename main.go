@@ -128,6 +128,8 @@ func iniciarWatcher(sourceFs afero.Fs, memFs afero.Fs) {
 	dirs := []string{"assets","components","content", "pages", "layout", "style"}
 	for _, d := range dirs { _ = watcher.Add(d) }
 
+	_ = watcher.Add("config.yaml")
+	
 	for {
 		select {
 		case event := <-watcher.Events:

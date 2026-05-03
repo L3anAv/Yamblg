@@ -140,6 +140,7 @@ func RunBuild(fs afero.Fs, isDev bool) {
     PagesData := map[string]any{
         "BaseURL":      cfg.BaseURL,
         "Title":         cfg.SiteTitle,
+        "Version":       cfg.Version,
         "Posts":         allPosts,
         "ActiveLasted":  cfg.UseSectionPost.Active,
         "ActivePinned":  cfg.UsePinned.Active,

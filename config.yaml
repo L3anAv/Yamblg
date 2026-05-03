@@ -1,3 +1,5 @@
+#project
+version: '0.1.12'
 # Config
 baseUrl: "/Yamblg/"
 userUrl: "https://l3anav.github.io"
@@ -8,4 +10,3 @@ useSectionPost:
     limitOfPost: 5
 usePinned:
     active: true
-    

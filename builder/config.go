@@ -15,6 +15,7 @@ import (
 )
 
 type Config struct {
+    Version   string `yaml:"version"`
     UserUrl   string `yaml:"userUrl"`
 	BaseURL   string `yaml:"baseUrl"`
 	SiteTitle string `yaml:"siteTitle"`
