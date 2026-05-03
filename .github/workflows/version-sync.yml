@@ -2,8 +2,10 @@ name: Update README Version
 
 on:
   push:
+    branches:
+      - main  # O el nombre de tu rama principal (master, etc.)
     paths:
-      - 'config.yaml' # Se dispara cuando detecta cambios en tu YAML
+      - 'config.yaml'
 
 jobs:
   sync-version:

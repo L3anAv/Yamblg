@@ -3,6 +3,7 @@
 
 :fecha: 02/05/2026
 :project-version: 0.0.0
+:badge-url: https://img.shields.io/badge/Version-{project-version}-blue?style=flat-square
 
 ifdef::env-github[]
 ++++
@@ -18,7 +19,7 @@ Diseñado para quienes quieren un blog rápidamente. Instalas la herramienta, cr
 image:https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square[Status]
 image:https://img.shields.io/badge/go-v1.25+-00ADD8?style=flat-square&logo=go&logoColor=white[Go Version]
 image:https://img.shields.io/badge/Config-YAML-red?style=flat-square&logo=yaml&logoColor=white[Config]
-image:https://img.shields.io/badge/Version-0.1.12-blue?style=flat-square[Version]
+image:{badge-url}[Version]
 image:https://img.shields.io/badge/RSS-Feed-orange?style=flat-square&logo=rss[RSS Feed, link="https://l3anav.github.io/Yamblg/index.xml"]
 
 == 🚀 [.underline]#¿Cómo se usa?#
