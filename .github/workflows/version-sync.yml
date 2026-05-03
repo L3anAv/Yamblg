@@ -3,7 +3,7 @@ name: Update README Version
 on:
   push:
     branches:
-      - main  # O el nombre de tu rama principal (master, etc.)
+      - master  # O el nombre de tu rama principal (master, etc.)
     paths:
       - 'config.yaml'
 
