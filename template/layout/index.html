@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{block "title" .}}
-             {{ .Title }}
-            {{end}}
+    <title>
+        {{- if .Title -}}
+            {{ .Title }}
+        {{- else -}}
+            Blog hecho con Yamblg
+        {{- end -}}
     </title>
     
     <!-- meta -->
